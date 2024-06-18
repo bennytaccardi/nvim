@@ -1,3 +1,8 @@
--- Keymaps are automatically loaded on the VeryLazy event
--- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
--- Add any additional keymaps here
+-- Define the key mapping
+local map = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+
+-- Map Shift+Cmd+F to Telescope's live_grep function
+map("n", "<D-F>", "<cmd>lua require('telescope.builtin').live_grep()<CR>", opts)
+map("n", "<D-s>", ":w<CR>", opts)
+map("i", "<D-s>", "<Esc>:w<CR>a", opts)
